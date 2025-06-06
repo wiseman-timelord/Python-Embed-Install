@@ -148,11 +148,28 @@ catch {
 try {
     Write-Host "`nInstalling essential packages..."
     $essentialPackages = @(
-        "requests",
-        "urllib3",
-        "certifi",
-        "charset-normalizer",
-        "idna"
+        # Core networking
+        "requests",         # HTTP requests
+        "urllib3",         # HTTP client
+        "certifi",         # SSL certificates
+        "charset-normalizer", # Character encoding
+        "idna",            # Internationalized domain names
+        
+        # Installer dependencies
+        "tqdm",            # Progress bars (required by Vulkan installer)
+        "colorama",        # Cross-platform colored terminal text
+        "packaging",       # Core utilities for Python packages
+        
+        # Backports for Python 3.9 compatibility
+        "dataclasses",     # Data class backport
+        "enum34; python_version < '3.4'", # Enum backport (conditional)
+        "pathlib2",        # Pathlib backport
+        "typing_extensions", # Additional typing support
+        
+        # Additional utilities
+        "six",             # Python 2/3 compatibility
+        "pywin32; sys_platform == 'win32'", # Windows API access
+        "psutil"          # Process utilities
     )
     
     foreach ($package in $essentialPackages) {
@@ -174,46 +191,77 @@ try {
         }
         else {
             Write-Host "Successfully installed $package"
-            # New improved verification code
-            $verificationScript = @"
+            # Handle packages with hyphens and conditional installs
+            $moduleName = ($package -split ";")[0].Trim() -replace "-", "_"
+            
+            # Skip verification for conditional packages
+            if ($package -notmatch ";") {
+                $verificationScript = @"
 try:
-    import $package
-    print(f'$package version: {getattr($package, "__version__", "no version attribute")}')
+    import $moduleName
+    version = getattr($moduleName, '__version__', 
+             getattr($moduleName, 'version', 
+             getattr($moduleName, 'VERSION', 'unknown')))
+    print(f'$package version: {version}')
     exit(0)
 except Exception as e:
     print(f'Verification failed: {str(e)}')
     exit(1)
 "@
-            $tempScriptPath = Join-Path -Path $env:TEMP -ChildPath "verify_$package.py"
-            Set-Content -Path $tempScriptPath -Value $verificationScript
-            
-            $packageCheck = .\python.exe $tempScriptPath 2>&1
-            if ($LASTEXITCODE -eq 0) {
-                Write-Host "Verified: $packageCheck"
+                $tempScriptPath = Join-Path -Path $env:TEMP -ChildPath "verify_$($moduleName).py"
+                Set-Content -Path $tempScriptPath -Value $verificationScript
+                
+                $packageCheck = .\python.exe $tempScriptPath 2>&1
+                if ($LASTEXITCODE -eq 0) {
+                    Write-Host "Verified: $packageCheck"
+                }
+                else {
+                    Write-Host "Verification failed: $packageCheck"
+                }
+                Remove-Item -Path $tempScriptPath -Force -ErrorAction SilentlyContinue
             }
-            else {
-                Write-Host "Verification failed: $packageCheck"
-            }
-            Remove-Item -Path $tempScriptPath -Force
         }
     }
 }
 catch {
     Write-Host "Error installing essential packages: $_"
-    Write-Host "Check individual package logs for details:"
+    Write-Host "Check these log files for details:"
     Get-ChildItem "$PWD\*-install-errors.log" | ForEach-Object {
-        Write-Host "  $($_.Name)"
+        Write-Host "  - $($_.Name)"
     }
 }
 
-# 6. Final system check
+# 6. Final system check with backport verification
 Write-Host "`nRunning final system checks..."
 $checks = @(
     @{Name="Pip"; Test={.\python.exe -m pip --version 2>&1}},
     @{Name="Requests"; Test={.\python.exe -c "import requests; print(requests.__version__)" 2>&1}},
     @{Name="SSL"; Test={.\python.exe -c "import ssl; print(ssl.OPENSSL_VERSION)" 2>&1}},
-    @{Name="Core Packages"; Test={.\python.exe -c "import pip, setuptools, wheel; print(f'pip {pip.__version__}, setuptools {setuptools.__version__}, wheel {wheel.__version__}')" 2>&1}}
+    @{Name="Core Packages"; Test={.\python.exe -c @"
+try:
+    import pip, setuptools, wheel
+    print(f'pip {pip.__version__}, setuptools {setuptools.__version__}, wheel {wheel.__version__}')
+except Exception as e:
+    print(f'Check failed: {str(e)}')
+"@ 2>&1}},
+    @{Name="Backports"; Test={.\python.exe -c @"
+try:
+    import dataclasses, pathlib2, typing_extensions
+    print('Backports: dataclasses, pathlib2, typing_extensions available')
+except Exception as e:
+    print(f'Missing backports: {str(e)}')
+"@ 2>&1}}
 )
+
+foreach ($check in $checks) {
+    try {
+        $result = & $check.Test
+        Write-Host "$($check.Name) check: $result"
+    }
+    catch {
+        Write-Host "$($check.Name) check failed: $_"
+    }
+}
 
 foreach ($check in $checks) {
     try {
