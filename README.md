@@ -95,4 +95,4 @@ It seemed to install most stuff correctly for me on windows 8, though, I am stil
 1. Unpack the Embedded version of "Python 3.9" to the directory `C:\Users\**YourUserName**\AppData\Local\Programs\Python\Python39` (obviously replacing "**YourUserName**" with the relevant `User Name`. 
 2. Put `C:\Users\**YourUserName**\AppData\Local\Programs\Python\Python39` on the path in the "Control Panel > System > Advanced System Settings > Advanced > Environment Variables". 
 3. Put, `Python_Embed_Install.bat` and `instller.py`, in `C:\Users\**YourUserName**\AppData\Local\Programs\Python\Python39`.
-4. Run `Python_Embed_Install.bat`, watch install operation. Follow up on issues to ensure complete install, or wait for later version that "MAY" address issues found.
+4. To run the tool, right click on `Python_Embed_Install.bat`, then right click "Run Python_Embed_Install.bat as Administrator", that you possibly have on your context menu, if not then elevate a console and run `Python_Embed_Install.bat` from the relevant directory. When run watch install operation. Follow up on issues, to ensure complete install, or wait for later version that "MAY" address issues found.
