@@ -113,7 +113,7 @@ Script execution finished. Press any key to exit...
 ```
 
 ## Requirements 
-- Windows 7-8.1 - Intended for Windows versions where Python 3.9 exe install dont work otherwise.
+- Windows 7-8.1 - Intended for Windows versions where Python 3.9+ exe install dont work otherwise.
 - Powershell v3+, the installer is powershell, so as to not have Python requirements to install.
 - The file `python-3.9.0-embed-amd64.zip` from "python.org".
 - Administrator Rights
