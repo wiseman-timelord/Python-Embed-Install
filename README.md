@@ -2,7 +2,7 @@
 Status: Beta (Early and Part-Complete)
 
 ### Description
-Its an installer for the package "Python 3.9 Embedded", otherwise known as "manual install". There is a zip `python-3.9.0-embed-amd64.zip`, and with my installer script it becomes a "Semi-Automatic" process to install. Each time I install/reinstall this program, I will integrate more features, such as making it a complete downloader/installer/pathUpdater, but for now, I will be making this program to assist the process from the point of having, expanded the zip to the `CORRECT` directory and added python to the path, and that will be version 1 when complete.
+Its an installer for the package "Python 3.9 Embedded", otherwise known as "manual install". There is a zip `python-3.9.0-embed-amd64.zip`, and with my installer script it becomes a "Semi-Automatic" process to install. Later versions integrate more features, such as making it a complete downloader/installer/pathUpdater, but for now, I will be making this program to assist the process from the point of having, expanded the zip to the `CORRECT` directory and added python to the path. Additionally having added stuff typically installed with "Python 3.12" exe installer, that were also found available on "Python 3.9", so as to produce somewhat "Python 3.9++".
 
 ### Preview
 Currently it does this...
