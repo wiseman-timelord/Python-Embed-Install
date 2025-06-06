@@ -82,7 +82,8 @@ Script execution finished. Press any key to exit...
 
 ### Development
 It seemed to install most stuff correctly for me on windows 8, though, I am still developing this currently...
-- working through remaining issues, and integrating updates into installer, while using "Chat-Gradio-Gguf" installer for purposes of testing robustness.
+1. Test and update, until working as expected, packaging for each significant update.
+2. Make release version when done updating.
 
 ### File Structure
 ```
