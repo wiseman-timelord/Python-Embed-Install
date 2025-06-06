@@ -2,7 +2,7 @@
 Status: Beta (Early and Part-Complete)
 
 ### Description
-Its an installer for the package "Python 3.9 Embedded", this is the option where there is a zip, otherwise known as "manual install", except with this installer it becomes a "Semi-Automatic" process.
+Its an installer for the package "Python 3.9 Embedded", otherwise known as "manual install". There is a zip `python-3.9.0-embed-amd64.zip`, and with my installer script it becomes a "Semi-Automatic" process to install.
 
 ### Development
 It seemed to install most stuff correctly for me on windows 8, though, I am still developing this currently, TBA.
