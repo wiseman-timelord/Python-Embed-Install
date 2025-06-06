@@ -42,21 +42,53 @@ Successfully installed certifi
 Verified: certifi version: 2025.04.26
 Installing charset-normalizer...
 Successfully installed charset-normalizer
-Error installing essential packages:   File "D:\Temporary\Temp\verify_charset-no
-rmalizer.py", line 2
-Check individual package logs for details:
-  certifi-install-errors.log
-  charset-normalizer-install-errors.log
-  pip-install-errors.log
-  requests-install-errors.log
-  urllib3-install-errors.log
+Verified: charset-normalizer version: 3.4.2
+Installing idna...
+Successfully installed idna
+Verified: idna version: 3.10
+Installing tqdm...
+Successfully installed tqdm
+Verified: tqdm version: 4.67.1
+Installing colorama...
+Successfully installed colorama
+Verified: colorama version: 0.4.6
+Installing packaging...
+Successfully installed packaging
+Verified: packaging version: 25.0
+Installing dataclasses...
+Successfully installed dataclasses
+Verified: dataclasses version: unknown
+Installing enum34; python_version < '3.4'...
+enum34; python_version < '3.4' installation failed. Check enum34; python_version
+ < '3.4'-install-errors.log
+Error installing essential packages: Illegal characters in path.
+Check these log files for details:
+  - certifi-install-errors.log
+  - charset-normalizer-install-errors.log
+  - colorama-install-errors.log
+  - dataclasses-install-errors.log
+  - idna-install-errors.log
+  - packaging-install-errors.log
+  - pip-install-errors.log
+  - requests-install-errors.log
+  - tqdm-install-errors.log
+  - urllib3-install-errors.log
 
 Running final system checks...
 Pip check: pip 25.1.1 from C:\Users\MaStar\AppData\Local\Programs\Python\Python3
 9\Lib\site-packages\pip (python 3.9)
 Requests check: 2.32.3
 SSL check: OpenSSL 1.1.1g  21 Apr 2020
-Core Packages check failed: Traceback (most recent call last):
+Core Packages check: Check failed: C:\Users\MaStar\AppData\Local\Programs\Python
+\Python39\python39.zip\distutils\core.pyc
+Backports check: Missing backports: No module named 'pathlib2'
+Pip check: pip 25.1.1 from C:\Users\MaStar\AppData\Local\Programs\Python\Python3
+9\Lib\site-packages\pip (python 3.9)
+Requests check: 2.32.3
+SSL check: OpenSSL 1.1.1g  21 Apr 2020
+Core Packages check: Check failed: C:\Users\MaStar\AppData\Local\Programs\Python
+\Python39\python39.zip\distutils\core.pyc
+Backports check: Missing backports: No module named 'pathlib2'
 
 Enhancement complete! Your Python installation now supports:
 - Updated pip (pip 25.1.1 from C:\Users\MaStar\AppData\Local\Programs\Python\Pyt
