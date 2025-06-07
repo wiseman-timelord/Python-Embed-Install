@@ -128,6 +128,7 @@ Script execution finished. Press any key to exit...
 ## Development
 It seemed to install most stuff correctly for me on windows 8, though, I am still developing this currently...
 1. Test and update, until working as expected, packaging for each significant update.
+2. I know Build-Tools is not installing correctly. It has some error.
 2. Make release version when done updating.
 
 ### File Structure
