@@ -2,7 +2,7 @@
 Status: Beta (Early and Part-Complete)
 
 ### Description
-Its an installer for the package "Python 3.9 Embedded", otherwise known as "manual install". There is a zip `python-3.9.0-embed-amd64.zip`, and with my installer script it becomes a "Semi-Automatic" process to install. Later versions integrate more features, such as making it a complete downloader/installer/pathUpdater, but for now, I will be making this program to assist the process from the point of having, expanded the zip to the `CORRECT` directory and added python to the path. Additionally having added stuff typically installed with "Python 3.12" exe installer, that were also found available on "Python 3.9", so as to produce somewhat "Python 3.9++".
+Its an installer for the package "Python 3.9 Embedded", otherwise known as "manual install". There is a zip `python-3.9.0-embed-amd64.zip`, and with my installer script it becomes a "Semi-Automatic" process to install. Later versions integrate more features, such as making it a complete downloader/installer/pathUpdater, but for now, I will be making this program to assist the process from the point of having, expanded the zip to the `CORRECT` directory and added python to the path. Additionally having added stuff typically installed with "Python 3.12" exe installer, that were also found available on "Python 3.9".
 
 ### Preview
 Currently it does this...
@@ -13,7 +13,7 @@ Python 3.9 Embedded Enhancement Installer
 ========================================
 
 Checking PowerShell version...
-Found PowerShell v +3
+Found PowerShell v +5
 
 System Check Complete - All Requirements Met
 ===========================================
@@ -23,78 +23,79 @@ Added site-packages path to python39._pth
 Downloaded get-pip.py to temp directory
 Installing pip and setuptools...
 Successfully installed pip and setuptools
-Verified: pip 25.1.1 from C:\Users\MaStar\AppData\Local\Programs\Python\Python39
-\Lib\site-packages\pip (python 3.9)
+Verified: pip 25.1.1 from C:\Users\Administrator\AppData\Local\Programs\Python\P
+ython39\Lib\site-packages\pip (python 3.9)
 
 Upgrading pip, setuptools and wheel...
 Successfully upgraded core packages
-Error upgrading packages: Traceback (most recent call last):
+Version verification failed: Traceback (most recent call last):
 
 Installing essential packages...
 Installing requests...
 Successfully installed requests
-Verified: requests version: 2.32.3
+Error installing requests :   File "<string>", line 1
 Installing urllib3...
 Successfully installed urllib3
-Verified: urllib3 version: 2.4.0
+Error installing urllib3 :   File "<string>", line 1
 Installing certifi...
 Successfully installed certifi
-Verified: certifi version: 2025.04.26
+Error installing certifi :   File "<string>", line 1
 Installing charset-normalizer...
 Successfully installed charset-normalizer
-Verified: charset-normalizer version: 3.4.2
+Error installing charset-normalizer :   File "<string>", line 1
 Installing idna...
 Successfully installed idna
-Verified: idna version: 3.10
+Error installing idna :   File "<string>", line 1
 Installing tqdm...
 Successfully installed tqdm
-Verified: tqdm version: 4.67.1
+Error installing tqdm :   File "<string>", line 1
 Installing colorama...
 Successfully installed colorama
-Verified: colorama version: 0.4.6
+Error installing colorama :   File "<string>", line 1
 Installing packaging...
 Successfully installed packaging
-Verified: packaging version: 25.0
+Error installing packaging :   File "<string>", line 1
 Installing dataclasses...
 Successfully installed dataclasses
-Verified: dataclasses version: unknown
-Installing enum34; python_version < '3.4'...
-enum34; python_version < '3.4' installation failed. Check enum34; python_version
- < '3.4'-install-errors.log
-Error installing essential packages: Illegal characters in path.
-Check these log files for details:
-  - certifi-install-errors.log
-  - charset-normalizer-install-errors.log
-  - colorama-install-errors.log
-  - dataclasses-install-errors.log
-  - idna-install-errors.log
-  - packaging-install-errors.log
-  - pip-install-errors.log
-  - requests-install-errors.log
-  - tqdm-install-errors.log
-  - urllib3-install-errors.log
+Error installing dataclasses :   File "<string>", line 1
+Installing pathlib2...
+Successfully installed pathlib2
+Error installing pathlib2 :   File "<string>", line 1
+Installing typing_extensions...
+Successfully installed typing_extensions
+Error installing typing_extensions :   File "<string>", line 1
+Installing six...
+Successfully installed six
+Error installing six :   File "<string>", line 1
+Installing pywin32...
+Successfully installed pywin32
+Error installing pywin32 :   File "<string>", line 1
+Installing psutil...
+Successfully installed psutil
+Error installing psutil :   File "<string>", line 1
+
+Installing virtualenv for venv support...
+Successfully installed virtualenv
+Verifying virtual environment creation...
+Virtual environment test successful
 
 Running final system checks...
-Pip check: pip 25.1.1 from C:\Users\MaStar\AppData\Local\Programs\Python\Python3
-9\Lib\site-packages\pip (python 3.9)
-Requests check: 2.32.3
+Pip check: pip 25.1.1 from C:\Users\Administrator\AppData\Local\Programs\Python\
+Python39\Lib\site-packages\pip (python 3.9)
+Requests check: 2.32.4
 SSL check: OpenSSL 1.1.1g  21 Apr 2020
-Core Packages check: Check failed: C:\Users\MaStar\AppData\Local\Programs\Python
-\Python39\python39.zip\distutils\core.pyc
-Backports check: Missing backports: No module named 'pathlib2'
-Pip check: pip 25.1.1 from C:\Users\MaStar\AppData\Local\Programs\Python\Python3
-9\Lib\site-packages\pip (python 3.9)
-Requests check: 2.32.3
-SSL check: OpenSSL 1.1.1g  21 Apr 2020
-Core Packages check: Check failed: C:\Users\MaStar\AppData\Local\Programs\Python
-\Python39\python39.zip\distutils\core.pyc
-Backports check: Missing backports: No module named 'pathlib2'
+Core Packages check: Check failed: C:\Users\Administrator\AppData\Local\Programs
+\Python\Python39\python39.zip\distutils\core.pyc
+Backports check: Backports: dataclasses, pathlib2, typing_extensions available
+Virtualenv check: virtualenv 20.31.2
+Venv Command check: Working
 
 Enhancement complete! Your Python installation now supports:
-- Updated pip (pip 25.1.1 from C:\Users\MaStar\AppData\Local\Programs\Python\Pyt
-hon39\Lib\site-packages\pip (python 3.9))
+- Updated pip (pip 25.1.1 from C:\Users\Administrator\AppData\Local\Programs\Pyt
+hon\Python39\Lib\site-packages\pip (python 3.9))
 - Essential networking packages
 - Proper site-packages functionality
+- Virtual environment support (via virtualenv)
 
 Note: This is a portable installation. Add to PATH manually if needed.
 Check the log files in this directory:
